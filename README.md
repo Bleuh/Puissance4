@@ -6,3 +6,20 @@ Le but de se projet est de mettre en place un jeu de puissance 4 en Java. Le jeu
 ----------
 
 ## <i class="icon-book">Cahier des charges
+### Itérations
+Lot 1 : Jeu fonctionnelle avec comme adversaire Humain contre Humain.
+
+Lot 2 : Possibilité de jouer contre la machine (IA).
+
+Lot 3 : Interface de jeu graphique.
+
+Idée : Inscription avec classement sauvegardé.
+
+### Technologies
+Java sur eclipse.
+Partie graphique : Swing.
+Partie inscription : Json ou bien texte (bdd).
+
+### Diagramme UML
+
+![enter image description here](https://lh3.googleusercontent.com/-Nesr6KLSNRs/WOZc5Z8uKGI/AAAAAAAACTY/D09QREE24Z8GXp1OlH_glL5ZrA_lGNTPwCLcB/s0/Diagramme+de+classe+java+puissance+4.png "Diagramme de classe java puissance 4.png")
