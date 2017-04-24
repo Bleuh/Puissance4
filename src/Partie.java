@@ -30,13 +30,11 @@ public class Partie {
 	      cJoueur++;
 	      cJoueur %= 2;
 	    }
-
-	    System.out.println("La partie est finie.");
-	    jeu.afficher();
+	    
 	    if (vainqueur == -1) {
-	      System.out.println("Match nul.");
+	      this.jeu.finDuJeu("Match nul");
 	    } else {
-	      System.out.println("Le vainqueur est " + joueurs[vainqueur].getNom());
+	      this.jeu.finDuJeu("Le vainqueur est " + joueurs[vainqueur].getNom());
 	    }
 	}
 }

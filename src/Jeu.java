@@ -6,13 +6,20 @@ public class Jeu {
 
 	private int taille;
 	private int[][] grille;
+	private Vue vue;
 
 	public Jeu(int taille) {
 		initJeu(taille);
+		vue = new Vue(taille);
 	}
 
 	public Jeu() {
 		initJeu(8);
+		vue = new Vue(8);
+	}
+	
+	public void finDuJeu(String message){
+		this.vue.finDePartie(message);
 	}
 
 	private void initJeu(int taille) {
@@ -34,6 +41,7 @@ public class Jeu {
 	    for (int ligne = 0; ligne < taille; ligne++) {
 	    	if (grille[col][ligne] == VIDE) {
 		        grille[col][ligne] = joueur;
+		        this.vue.changeGrilleColor(col, ligne, joueur);
 		        return true;
 	    	}
 	    }
@@ -159,33 +167,5 @@ public class Jeu {
 
   public int getTaille() {
 	  return taille;
-  }
-
-  public void afficher() {
-    for (int ligne = taille - 1; ligne >= 0; --ligne) {
-      for (int col = 0; col < taille; col++) {
-        switch (grille[col][ligne]) {
-        case VIDE:
-          System.out.print('0');
-          break;
-        case ROUGE:
-          System.out.print('R');
-          break;
-        case BLEU:
-          System.out.print('B');
-          break;
-        }
-      }
-      System.out.println();
-    }
-
-    for (int i = 0; i < taille; ++i) {
-      System.out.print('-');
-    }
-    System.out.println();
-    for (int i = 1; i <= taille; ++i) {
-      System.out.print(i);
-    }
-    System.out.println();
   }
 }
