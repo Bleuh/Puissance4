@@ -1,3 +1,5 @@
+import java.util.Random;
+
 
 public class Jeu {
 	public final static int VIDE = 0;
@@ -7,6 +9,7 @@ public class Jeu {
 	private int taille;
 	private int[][] grille;
 	private Vue vue;
+	private boolean debut = true;
 
 	public Jeu(int taille) {
 		initJeu(taille);
@@ -146,6 +149,48 @@ public class Jeu {
 
 	    // Aucun alignement n'a été trouvé
 	    return false;
+	}
+	
+	public boolean iaPlay(int joueur){
+		if(this.debut){
+			this.debut = false;
+			Random rand = new Random();
+			int nombreAleatoire = rand.nextInt(taille);
+			if(this.joueCoup(nombreAleatoire, joueur)){
+				return true;
+			}
+		}
+
+	    for (int col = 0; col < taille ; col++) {
+	    	for (int row = 0; row < taille; row++) {
+	    		if(grille[col][row] == BLEU){
+	    			int nextCol = getNearCase(col, row);
+	    			if(nextCol != -1 && this.joueCoup(nextCol, joueur)){
+	    				return true;
+	    			}
+	    		}
+	    	}
+	    }
+		for (int col = 0; col < taille; col++) {
+		  if (this.joueCoup(col, joueur)) {
+		    return true;
+		  }
+		}
+		return false;
+	}
+	
+	public int getNearCase(int colTraget, int rowTarget){
+		int[] elements = {0, -1, 1};  
+		for(int col : elements){
+			for (int row : elements) {
+				if(colTraget + col >= 0 && colTraget + col < taille && rowTarget + row >= 0 && rowTarget + row < taille){
+		    		if(grille[colTraget + col][rowTarget + row] == VIDE){
+		    			return colTraget + col;
+		    		}
+				}
+	    	}
+		}
+		return -1;
 	}
 
   /**

@@ -15,11 +15,9 @@ public class Humain extends Joueur {
 				Vue.clic.wait();
 			    valide = jeu.joueCoup(colSelected, this.getCouleur());
 			    if (valide == false) {
-			    	//do action
 			    	joue(jeu);
 			    }
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
