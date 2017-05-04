@@ -22,4 +22,4 @@ Partie inscription : Json ou bien texte (bdd).
 
 ### Diagramme UML
 
-![enter image description here]Puissance4.png "Diagramme de classe java puissance 4.png")
+![enter image description here]https://github.com/Bleuh/Puissance4/blob/master/Puissance4.png "Diagramme de classe java puissance 4.png")
